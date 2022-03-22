@@ -46,6 +46,13 @@ class CreditCardValidatorTest(unittest.TestCase):
             "723"
         )
 
+        self.card_validator7 = CreditCardValidator(
+            "6011000901300009",
+            "Darshan",
+            "01/26",
+            "723"
+        )
+
 
     def test_card_num(self):
         res = self.card_validator1.validate_card_num()
@@ -90,7 +97,10 @@ class CreditCardValidatorTest(unittest.TestCase):
         self.assertEqual(res, "AMEX Card")
 
         res = self.card_validator6.check_card_brand()
-        self.assertEqual(res, "Other Card")        
+        self.assertEqual(res, "Other Card")
+
+        res = self.card_validator7.check_card_brand()
+        self.assertEqual(res, "Not a Valid Credit Card")        
 
     
 if __name__ == "__main__":
